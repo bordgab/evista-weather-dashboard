@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  php:
+    container_name: evista-php
+    build: ./docker/php
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/var/www/http
+
+  nginx:
+    container_name: evista-nginx
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/http
+      - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - php
