@@ -27,7 +27,7 @@ class WeatherServerCommand extends Command
                 'refresh',
                 'r',
                 InputOption::VALUE_OPTIONAL,
-                'Weather data refresh period in seconds (default: 60)',
+                'Weather data refresh interval in seconds (default: 60)',
                 60
             )
             ->addOption(
