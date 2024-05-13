@@ -7,6 +7,9 @@ services:
       - "4000:4000"
     volumes:
       - .:/var/www/http
+    networks:
+      docker:
+        ipv4_address: 172.30.10.8
 
   nginx:
     container_name: evista-nginx
@@ -18,3 +21,10 @@ services:
       - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
     links:
       - php
+    networks:
+      docker:
+        ipv4_address: 172.30.20.8
+
+networks:
+  docker:
+    external: true

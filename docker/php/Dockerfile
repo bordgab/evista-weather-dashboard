@@ -12,8 +12,10 @@ RUN apt update -y && \
     zip unzip && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
-    # Install PHP extensions
+    # Install PHP extensions \
+    pecl install xdebug && \
     docker-php-ext-install pdo pdo_pgsql && \
+    docker-php-ext-enable xdebug && \
     docker-php-source delete && \
     # Install Composer
     curl -sS https://getcomposer.org/installer | php && \
@@ -22,4 +24,5 @@ RUN apt update -y && \
 WORKDIR /var/www/http
 
 COPY entrypoint.sh /entrypoint
+COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 RUN chmod +x /entrypoint
