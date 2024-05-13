@@ -38,9 +38,6 @@ class WeatherApp implements MessageComponentInterface
         $this->loop->addPeriodicTimer($refreshInterval, fn() => $this->refreshRealtimeData());
     }
 
-    /**
-     * Save the new connection for sending messages later.
-     */
     public function onOpen(ConnectionInterface $conn): void
     {
         $this->clients->attach($conn);
