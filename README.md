@@ -6,7 +6,7 @@
 - Weather api: [WeatherAPI.com](https://www.weatherapi.com/)
 - Tool to test websocket communication: [WebSocket King client](https://websocketking.com/)
 
-- To change location of weather data send `{"location":"<new location>"}` message to socket server.
+- To change location of weather data send `{"location":"<new location>"}` message to socket server. Default location is "Budapest".
 
 ### Docker containers
 - evista-php
