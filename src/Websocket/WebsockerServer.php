@@ -13,7 +13,7 @@ use React\Socket\SocketServer;
 
 class WebsockerServer extends IoServer
 {
-    public static function create(MessageComponentInterface $server, LoopInterface $loop, $port = 80, $address = '0.0.0.0')
+    public static function create(MessageComponentInterface $server, LoopInterface $loop, $port = 80, $address = '0.0.0.0'): self
     {
         $component = new HttpServer(
             new WsServer(
