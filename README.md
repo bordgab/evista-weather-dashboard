@@ -26,7 +26,7 @@ SYMFONY_DECRYPTION_SECRET=<secret key>
 
 Decrypt WEATHER_API_KEY to environment variable:
 ```bash
-bin/console secrets:decrypt-to-local --force
+docker exec evista-php bin/console secrets:decrypt-to-local --force
 ```
 
 Staring the application (websocket server) (the `-r` option is the realtime weather data refresh interval in seconds):
