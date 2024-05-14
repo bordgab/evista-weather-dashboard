@@ -8,15 +8,21 @@
 
 - To change location of weather data send `{"location":"<new location>"}` message to socket server. Default location is "Budapest".
 
-### Docker containers
-- evista-php
-  - Staring websocket server (the `-r` option is the realtime data refresh interval in seconds):
-  ```bash
-  bin/console weather:server:run -r 60
-  ```
-  
+### Installing and running the application
+To start (and build, if necessary) docker containers, run the following command: 
+```bash
+docker compose up -d
+```
 
-- evista-nginx
-  - Not using in current project status.
+Install dependencies:
+```bash
+docker exec evista-php composer install
+```
+
+Staring the application (websocket server) (the `-r` option is the realtime weather data refresh interval in seconds):
+  ```bash
+  docker exec evista-php bin/console weather:server:run -r 60
+  ```
+
 ## Frontend (dashboard)
 - Not implemented yet
